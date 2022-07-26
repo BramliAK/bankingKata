@@ -40,9 +40,9 @@ public class Menu {
 
     do {
 
-        out.println("====================");
-        out.println("Enter an option:");
-        option = scanner.next().toUpperCase().charAt(0);
+      out.println("====================");
+      out.println("Enter an option:");
+      option = scanner.next().toUpperCase().charAt(0);
       try {
         switch (option) {
           case 'A':
@@ -77,9 +77,9 @@ public class Menu {
             out.println("Invalid option!, Please try again.");
             break;
         }
-      } catch (BankingFunctionalException  bankingFunctionalException) {
+      } catch (BankingFunctionalException bankingFunctionalException) {
         out.println(bankingFunctionalException.getMessage());
-      }catch (InputMismatchException inputMismatchException){
+      } catch (InputMismatchException inputMismatchException) {
         out.println("the amount must be number");
       }
     } while (option != 'E');
