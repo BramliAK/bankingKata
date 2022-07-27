@@ -9,16 +9,7 @@ public class Transaction {
   private Double amount;
   private String transactionType;
   private Account account;
-  private LocalDateTime TransactionDate;
-
-  public double getCurrentBalance() {
-    return currentBalance;
-  }
-
-  public void setCurrentBalance(double currentBalance) {
-    this.currentBalance = currentBalance;
-  }
-
+  private LocalDateTime transactionDate;
   private double currentBalance;
 
   public Transaction() {
@@ -31,7 +22,7 @@ public class Transaction {
     this.amount = amount;
     this.transactionType = transactionType;
     this.account = account;
-    this.TransactionDate = LocalDateTime.now();
+    this.transactionDate = LocalDateTime.now();
   }
 
   private String generateId() {
@@ -72,10 +63,18 @@ public class Transaction {
   }
 
   public LocalDateTime getTransactionDate() {
-    return TransactionDate;
+    return transactionDate;
   }
 
   public void setTransactionDate(LocalDateTime transactionDate) {
-    TransactionDate = transactionDate;
+    this.transactionDate = transactionDate;
+  }
+
+  public double getCurrentBalance() {
+    return currentBalance;
+  }
+
+  public void setCurrentBalance(double currentBalance) {
+    this.currentBalance = currentBalance;
   }
 }

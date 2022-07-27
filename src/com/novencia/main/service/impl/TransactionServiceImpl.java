@@ -6,6 +6,7 @@ import static com.novencia.main.enums.TransactionType.DEBIT;
 import com.novencia.main.model.Account;
 import com.novencia.main.model.Transaction;
 import com.novencia.main.service.TransactionService;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -27,6 +28,7 @@ public class TransactionServiceImpl implements TransactionService {
       List<Transaction> transactions) {
     return transactions.stream()
         .filter(transaction -> Objects.equals(accountId, transaction.getAccount().getId()))
+        .sorted(Comparator.comparing(Transaction::getTransactionDate).reversed())
         .collect(Collectors.toList());
   }
 }

@@ -18,6 +18,10 @@ import java.util.Scanner;
 public class Menu {
 
   public static final char CheckBalance = 'A';
+  public static final char Deposit = 'B';
+  public static final char Withdraw = 'C';
+  public static final char history = 'D';
+  public static final char Exit = 'E';
 
   public void showMenu(Customer customer, Account account, List<Transaction> transactions) {
     AccountService accountService = new AccountServiceImpl();
@@ -45,30 +49,30 @@ public class Menu {
       option = scanner.next().toUpperCase().charAt(0);
       try {
         switch (option) {
-          case 'A':
+          case CheckBalance:
             out.println("====================");
             out.println("Balance = " + String.format("%.2f", account.getBalance()) + "$");
             break;
-          case 'B':
+          case Deposit:
             out.println("====================");
             out.println("Enter an amount to deposit:");
             double amountToDeposit = scanner.nextInt();
             accountService.depositAmount(account, amountToDeposit);
             transactions.add(transactionService.depositTransaction(account, amountToDeposit));
             break;
-          case 'C':
+          case Withdraw:
             out.println("====================");
             out.println("Enter an amount to withdraw:");
             double amountToWithdraw = scanner.nextInt();
             accountService.withdrawalAmount(account, amountToWithdraw);
             transactions.add(transactionService.withdrawalTransaction(account, amountToWithdraw));
             break;
-          case 'D':
+          case history:
             out.println("====================");
             createTransactionsTable(
                 transactionService.findTransactionByAccountId(account.getId(), transactions));
             break;
-          case 'E':
+          case Exit:
             out.println("====================");
             out.println("Thank you for using our services.");
             break;
@@ -98,7 +102,7 @@ public class Menu {
     transactions
         .forEach(transaction -> out.format(leftAlignFormat, transaction.getTransactionType(),
             transaction.getTransactionDate().format(format), transaction.getAmount(),
-            transaction.getAccount().getBalance()));
+            transaction.getCurrentBalance()));
     out.format("+------------+---------------------+------------+------------+%n");
   }
 }
