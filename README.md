@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 - Java version 11
+- Junit 5
 
 - ## Features
 
