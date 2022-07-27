@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 - Java version 11
-- Junit 5
+- Junit 5 (org.junit.jupiter:junit-jupiter-engine:5.8.2)
 
 - ## Features
 
